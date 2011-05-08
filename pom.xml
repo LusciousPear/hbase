@@ -26,11 +26,11 @@
   </description>
   <url>http://hbase.apache.org</url>
 
-  <scm>
-    <connection>scm:svn:http://svn.apache.org/repos/asf/hbase/trunk</connection>
-    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/hbase/trunk</developerConnection>
-    <url>http://svn.apache.org/viewvc/hbase/trunk</url>
-  </scm>
+  <!--<scm>-->
+    <!--<connection>scm:svn:http://svn.apache.org/repos/asf/hbase/trunk</connection>-->
+    <!--<developerConnection>scm:svn:https://svn.apache.org/repos/asf/hbase/trunk</developerConnection>-->
+    <!--<url>http://svn.apache.org/viewvc/hbase/trunk</url>-->
+  <!--</scm>-->
 
   <issueManagement>
     <system>JIRA</system>
@@ -209,12 +209,18 @@
     </repository>
   </repositories>
 
+
+
+
   <build>
     <!-- Some plugins (javadoc for example) can be used in the normal build- and the site phase.
          These plugins inherit their options from the <reporting> section below. These settings
          can be overwritten here. -->
-    <pluginManagement>
+
+      <pluginManagement>
       <plugins>
+
+
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <configuration>
@@ -548,10 +554,17 @@
     templateSourceDir=src/main/jamon
     templateOutputDir=target/generated-jamon
     </content>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.1</version>
+      </plugin>
             </file>
           </additionalConfig>
         </configuration>
       </plugin>
+
+
     </plugins>
   </build>
 
@@ -917,6 +930,7 @@
     <profile>
       <id>rpm</id>
       <build>
+
         <plugins>
           <plugin>
             <artifactId>maven-antrun-plugin</artifactId>
@@ -1113,4 +1127,14 @@
       </plugin>
     </plugins>
   </reporting>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ChefMaster</id>
+            <name>ChefMaster-snapshots</name>
+            <url>http://184.106.110.41:8087/artifactory/libs-snapshot-local</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+
 </project>
