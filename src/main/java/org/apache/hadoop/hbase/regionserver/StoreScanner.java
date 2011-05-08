@@ -35,7 +35,7 @@ import java.util.NavigableSet;
  * Scanner scans both the memstore and the HStore. Coalesce KeyValue stream
  * into List<KeyValue> for a single row.
  */
-class StoreScanner implements KeyValueScanner, InternalScanner, ChangedReadersObserver {
+public class StoreScanner implements KeyValueScanner, InternalScanner, ChangedReadersObserver {
   static final Log LOG = LogFactory.getLog(StoreScanner.class);
   private Store store;
   private ScanQueryMatcher matcher;
